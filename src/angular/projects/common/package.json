@@ -1,6 +1,6 @@
 {
   "name": "@masch212/angular-common",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "peerDependencies": {
     "@angular/common": "12.x",
     "@angular/core": "12.x",
