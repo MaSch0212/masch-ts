@@ -1,10 +1,14 @@
 {
-  "name": "@masch/rxjs",
+  "name": "@masch212/rxjs",
   "version": "0.1.0",
   "description": "Extensions for rxjs",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Marc Schmidt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaSch0212/masch-ts.git"
+  },
   "license": "MIT",
   "private": false,
   "scripts": {
