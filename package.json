@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": [
+    "src/*"
+  ],
+  "scripts": {
+    "build": "wsrun build"
+  },
+  "devDependencies": {
+    "wsrun": "^5.2.4"
+  },
+  "dependencies": {
+    "rxjs": "6.x"
+  }
+}
