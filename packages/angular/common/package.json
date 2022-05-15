@@ -1,0 +1,14 @@
+{
+  "name": "@masch212/angular-common",
+  "version": "0.2.0",
+  "author": "Marc Schmidt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaSch0212/masch-ts.git"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
+  }
+}

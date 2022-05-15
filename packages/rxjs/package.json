@@ -1,0 +1,13 @@
+{
+  "name": "@masch212/rxjs",
+  "version": "0.2.0",
+  "author": "Marc Schmidt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaSch0212/masch-ts.git"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "rxjs": ">4"
+  }
+}

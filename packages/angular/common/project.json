@@ -1,0 +1,49 @@
+{
+  "projectType": "library",
+  "sourceRoot": "packages/angular/common/src",
+  "prefix": "masch212",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/angular/common"],
+      "options": {
+        "project": "packages/angular/common/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/angular/common/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/angular/common/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/angular/common"],
+      "options": {
+        "jestConfig": "packages/angular/common/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/angular/common/**/*.ts",
+          "packages/angular/common/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "buildTarget": "production"
+      }
+    }
+  },
+  "tags": [],
+  "root": "packages/angular/common"
+}

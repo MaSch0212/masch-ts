@@ -1,0 +1,35 @@
+{
+  "extends": "nx/presets/core.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "masch212",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "NzYwYzZjM2QtYTYzZi00NGQ3LTkwMTctYjNmYWU0YzRkYzJifHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  }
+}
