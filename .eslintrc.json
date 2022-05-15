@@ -22,7 +22,7 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": ["*.ts"],
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {}
     },

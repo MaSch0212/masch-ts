@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@masch212/angular-common": ["packages/angular/common/src/index.ts"],
+      "@masch212/angular-controls": ["packages/angular/controls/src/index.ts"],
       "@masch212/rxjs": ["packages/rxjs/src/index.ts"]
     }
   },

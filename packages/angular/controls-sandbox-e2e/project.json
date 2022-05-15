@@ -1,0 +1,30 @@
+{
+  "$schema": "..\\..\\..\\node_modules\\nx\\schemas\\project-schema.json",
+  "sourceRoot": "packages/angular/controls-sandbox-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "packages/angular/controls-sandbox-e2e/cypress.json",
+        "devServerTarget": "angular-controls-sandbox:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "angular-controls-sandbox:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/angular/controls-sandbox-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["angular-controls-sandbox"]
+}

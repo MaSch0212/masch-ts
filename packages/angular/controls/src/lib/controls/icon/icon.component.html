@@ -1,0 +1,9 @@
+<div *ngIf="className$ | async; let className; else svgIcon"
+     [class]="className"></div>
+
+<ng-template #svgIcon>
+  <svg version="1.1"
+       [attr.viewBox]="svgViewBox">
+    <path [attr.d]="svgData" />
+  </svg>
+</ng-template>

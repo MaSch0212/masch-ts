@@ -47,6 +47,5 @@
       }
     }
   },
-  "tags": [],
-  "root": "packages/rxjs"
+  "tags": []
 }

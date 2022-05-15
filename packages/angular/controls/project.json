@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "sourceRoot": "packages/angular/controls/src",
+  "prefix": "masch",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/angular/controls"],
+      "options": {
+        "project": "packages/angular/controls/ng-package.json",
+        "tailwindConfig": "packages/angular/controls/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/angular/controls/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/angular/controls/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/angular/controls"],
+      "options": {
+        "jestConfig": "packages/angular/controls/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/angular/controls/**/*.ts",
+          "packages/angular/controls/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
