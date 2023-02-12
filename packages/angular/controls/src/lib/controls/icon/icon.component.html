@@ -1,9 +1,19 @@
-<div *ngIf="className$ | async; let className; else svgIcon"
-     [class]="className"></div>
-
-<ng-template #svgIcon>
+<ng-container *ngIf="data$ | async; let data"
+              [ngSwitch]="mode$ | async">
+  <div *ngSwitchCase="Mode.IconFont"
+       [ngClass]="data"
+       [style.fontSize]="size + 'px'"
+       [style.height]="size + 'px'"
+       [style.width]="size + 'px'"></div>
   <svg version="1.1"
-       [attr.viewBox]="svgViewBox">
-    <path [attr.d]="svgData" />
+       viewBox="0 0 24 24"
+       [attr.height]="size"
+       [attr.width]="size"
+       *ngSwitchCase="Mode.SvgData">
+    <path [attr.d]="data" />
   </svg>
-</ng-template>
+  <img *ngSwitchCase="Mode.SvgUrl"
+       [src]="data"
+       [style.height]="size + 'px'"
+       [style.width]="size + 'px'">
+</ng-container>

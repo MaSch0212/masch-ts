@@ -5,10 +5,7 @@ import {
   Input,
 } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {
-  MASCH_ICON_CLASS_PREFIX,
-  MASCH_ICON_CLASS_SUFFIX,
-} from './icon.module';
+import { IconMode, ModuleOptions } from './icon.models';
 
 @Component({
   selector: 'masch-icon',
@@ -17,29 +14,74 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MaSchIconComponent {
-  private _className$: BehaviorSubject<string | undefined>;
+  private readonly _data$: BehaviorSubject<string | undefined>;
+  private readonly _mode$: BehaviorSubject<IconMode>;
+  private _icon?: string;
+
+  public Mode = IconMode;
 
   constructor(
-    @Inject(MASCH_ICON_CLASS_PREFIX) private _classPrefix: string | undefined,
-    @Inject(MASCH_ICON_CLASS_SUFFIX) private _classSuffix: string | undefined
+    @Inject('MASCH_ICON_MODULEOPTIONS')
+    private readonly _config: ModuleOptions
   ) {
-    this._className$ = new BehaviorSubject<string | undefined>(undefined);
+    console.log(_config);
+    this._mode$ = new BehaviorSubject<IconMode>(
+      _config.defaultMode || IconMode.SvgData
+    );
+    this._data$ = new BehaviorSubject<string | undefined>(undefined);
   }
 
   @Input()
-  public set name(value: string | undefined) {
-    if (value) {
-      this._className$.next(`${this._classPrefix}${value}${this._classSuffix}`);
+  public set icon(value: string | undefined) {
+    this._icon = value;
+    this.refreshData();
+  }
+
+  @Input()
+  public set mode(value: IconMode) {
+    this._mode$.next(value);
+    this.refreshData();
+  }
+  public get mode$(): Observable<IconMode> {
+    return this._mode$.asObservable();
+  }
+
+  @Input()
+  public size: number = 24;
+
+  public get data$(): Observable<string | undefined> {
+    return this._data$.asObservable();
+  }
+
+  private refreshData(): void {
+    let nextData: string | undefined;
+
+    if (!this._icon) {
+      nextData = undefined;
+    } else {
+      switch (this._mode$.value) {
+        case IconMode.IconFont:
+          nextData = '';
+          if (this._config.additionalClasses) {
+            nextData += `${this._config.additionalClasses} `;
+          }
+          if (this._config.classPrefix) {
+            nextData += this._config.classPrefix;
+          }
+          nextData += this._icon;
+          if (this._config.classSuffix) {
+            nextData += this._config.classSuffix;
+          }
+          break;
+        case IconMode.SvgData:
+        case IconMode.SvgUrl:
+          nextData = this._icon;
+          break;
+        default:
+          throw Error(`Invalid icon mode: ${this._mode$.value}.`);
+      }
     }
-  }
 
-  @Input()
-  public svgData?: string = 'M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z';
-
-  @Input()
-  public svgViewBox: string = '0 0 24 24';
-
-  public get className$(): Observable<string | undefined> {
-    return this._className$.asObservable();
+    this._data$.next(nextData);
   }
 }

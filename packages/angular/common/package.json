@@ -1,6 +1,6 @@
 {
   "name": "@masch212/angular-common",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Marc Schmidt",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": ">=13 <=15",
+    "@angular/core": ">=13 <=15"
   }
 }

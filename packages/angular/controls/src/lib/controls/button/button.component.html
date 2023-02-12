@@ -1,3 +1,14 @@
-<button [class]="'masch-button-' + type">
-  <ng-content></ng-content>
+<button [class]="'masch-button masch-button-' + type + ' masch-button-icon-' + iconPos"
+        [class.masch-button-empty]="icon.childNodes.length === 0 && content.childNodes.length === 0"
+        [class.masch-button-only-icon]="icon.childNodes.length === 0 && content.childNodes.length > 0"
+        [class.masch-button-only-content]="icon.childNodes.length > 0 && content.childNodes.length === 0"
+        [class.masch-button-icon-and-content]="icon.childNodes.length > 0 && content.childNodes.length > 0">
+  <div class="masch-button-icon"
+       #icon>
+    <ng-content select="[icon]"></ng-content>
+  </div>
+  <div class="masch-button-content"
+       #content>
+    <ng-content></ng-content>
+  </div>
 </button>

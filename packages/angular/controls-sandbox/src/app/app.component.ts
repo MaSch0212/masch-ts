@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IconMode } from '@masch212/angular-controls';
+import { mdiHome } from '@mdi/js';
 
 @Component({
   selector: 'masch212-root',
@@ -6,4 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public IconMode = IconMode;
+  public testIcon = mdiHome;
 }

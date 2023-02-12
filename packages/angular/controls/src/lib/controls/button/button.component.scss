@@ -1,3 +1,20 @@
 // .masch-button-elevated {
 //   @apply text-white;
 // }
+
+.masch-button {
+  display: grid;
+
+  &.masch-button-icon-left {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "icon content";
+  }
+
+  .masch-button-icon {
+    grid-area: icon;
+  }
+
+  .masch-button-content {
+    grid-area: content;
+  }
+}

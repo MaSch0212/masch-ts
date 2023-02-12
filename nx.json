@@ -6,7 +6,8 @@
     "defaultBase": "master"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "pnpm"
   },
   "tasksRunnerOptions": {
     "default": {

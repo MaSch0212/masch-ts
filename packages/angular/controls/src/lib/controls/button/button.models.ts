@@ -5,3 +5,10 @@ export enum ButtonType {
   Outlined = 'outlined',
   Text = 'text',
 }
+
+export enum ButtonIconPosition {
+  Left = 'left',
+  Top = 'top',
+  Right = 'right',
+  Bottom = 'bottom',
+}
